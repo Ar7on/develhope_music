@@ -1,0 +1,17 @@
+it\develhope\develhopeMusic\entities\Song.class
+it\develhope\develhopeMusic\controllers\SongController.class
+it\develhope\develhopeMusic\controllers\UserController.class
+it\develhope\develhopeMusic\repositories\UserRepository.class
+it\develhope\develhopeMusic\services\UserService.class
+it\develhope\develhopeMusic\controllers\ArtistController.class
+it\develhope\develhopeMusic\repositories\SongRepository.class
+it\develhope\develhopeMusic\entities\User.class
+it\develhope\develhopeMusic\services\AlbumService.class
+it\develhope\develhopeMusic\ProjectSpringBootDevelhopeMusicApplication.class
+it\develhope\develhopeMusic\services\SongService.class
+it\develhope\develhopeMusic\services\ArtistService.class
+it\develhope\develhopeMusic\repositories\AlbumRepository.class
+it\develhope\develhopeMusic\entities\Album.class
+it\develhope\develhopeMusic\entities\Artist.class
+it\develhope\develhopeMusic\repositories\ArtistRepository.class
+it\develhope\develhopeMusic\controllers\AlbumController.class
