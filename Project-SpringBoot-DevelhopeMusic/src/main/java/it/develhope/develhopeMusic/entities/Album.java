@@ -7,20 +7,19 @@ import java.time.LocalDate;
 @Table(name = "albums")
 public class Album {
     private int id;
-    private int idArtist;
     private String albumTitle;
     private String genre;
-    private LocalDate relaseDate;
+    private LocalDate releaseDate;
+
 
     public Album() {
     }
 
-    public Album(int id, int idArtist, String albumTitle, String genre, LocalDate relaseDate) {
+    public Album(int id, String albumTitle, String genre, LocalDate releaseDate) {
         this.id = id;
-        this.idArtist = idArtist;
         this.albumTitle = albumTitle;
         this.genre = genre;
-        this.relaseDate = relaseDate;
+        this.releaseDate = releaseDate;
     }
 
     @Id
@@ -31,14 +30,6 @@ public class Album {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdArtist() {
-        return idArtist;
-    }
-
-    public void setIdArtist(int idArtist) {
-        this.idArtist = idArtist;
     }
 
     public String getAlbumTitle() {
@@ -57,11 +48,11 @@ public class Album {
         this.genre = genre;
     }
 
-    public LocalDate getRelaseDate() {
-        return relaseDate;
+    public LocalDate getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setRelaseDate(LocalDate relaseDate) {
-        this.relaseDate = relaseDate;
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
     }
 }

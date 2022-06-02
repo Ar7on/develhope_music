@@ -8,23 +8,19 @@ import java.time.LocalDate;
 @Table(name = "songs")
 public class Song {
     private int id;
-    private int idArtist;
-    private int idAlbum;
     private String songTitle;
     private Time duration;
-    private LocalDate relaseDate;
-    private int listenings = 0;
+    private LocalDate releaseDate;
+    private int listenings;
 
     public Song() {
     }
 
-    public Song(int id, int idArtist, int idAlbum, String songTitle, Time duration, LocalDate relaseDate, int listenings) {
+    public Song(int id, String songTitle, Time duration, LocalDate releaseDate, int listenings) {
         this.id = id;
-        this.idArtist = idArtist;
-        this.idAlbum = idAlbum;
         this.songTitle = songTitle;
         this.duration = duration;
-        this.relaseDate = relaseDate;
+        this.releaseDate = releaseDate;
         this.listenings = listenings;
     }
 
@@ -36,22 +32,6 @@ public class Song {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdArtist() {
-        return idArtist;
-    }
-
-    public void setIdArtist(int idArtist) {
-        this.idArtist = idArtist;
-    }
-
-    public int getIdAlbum() {
-        return idAlbum;
-    }
-
-    public void setIdAlbum(int idAlbum) {
-        this.idAlbum = idAlbum;
     }
 
     public String getSongTitle() {
@@ -70,12 +50,12 @@ public class Song {
         this.duration = duration;
     }
 
-    public LocalDate getRelaseDate() {
-        return relaseDate;
+    public LocalDate getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setRelaseDate(LocalDate relaseDate) {
-        this.relaseDate = relaseDate;
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public int getListenings() {

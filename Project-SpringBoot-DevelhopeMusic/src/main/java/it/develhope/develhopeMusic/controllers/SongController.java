@@ -24,8 +24,6 @@ public class SongController {
     public ResponseEntity<Song> get(@PathVariable Integer id) {
         try {
             Song song = songService.getSong(id);
-            song.setListenings(song.getListenings() + 1);
-            songService.saveSong(song);
             return new ResponseEntity<Song>(song, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Song>(HttpStatus.NOT_FOUND);
