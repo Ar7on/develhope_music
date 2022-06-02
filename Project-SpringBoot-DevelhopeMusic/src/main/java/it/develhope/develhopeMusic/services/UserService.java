@@ -1,6 +1,6 @@
 package it.develhope.develhopeMusic.services;
 
-import it.develhope.develhopeMusic.entities.User;
+import it.develhope.develhopeMusic.entities.user.User;
 import it.develhope.develhopeMusic.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
