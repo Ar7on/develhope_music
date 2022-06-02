@@ -1,22 +1,27 @@
 package it.develhope.develhopeMusic.entities;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "songs")
 public class Song {
     private int id;
+    private int idArtist;
+    private int idAlbum;
     private String songTitle;
-    private LocalDate duration;
+    private Time duration;
     private LocalDate relaseDate;
-    private int listenings;
+    private int listenings = 0;
 
     public Song() {
     }
 
-    public Song(int id, String songTitle, LocalDate duration, LocalDate relaseDate, int listenings) {
+    public Song(int id, int idArtist, int idAlbum, String songTitle, Time duration, LocalDate relaseDate, int listenings) {
         this.id = id;
+        this.idArtist = idArtist;
+        this.idAlbum = idAlbum;
         this.songTitle = songTitle;
         this.duration = duration;
         this.relaseDate = relaseDate;
@@ -33,6 +38,22 @@ public class Song {
         this.id = id;
     }
 
+    public int getIdArtist() {
+        return idArtist;
+    }
+
+    public void setIdArtist(int idArtist) {
+        this.idArtist = idArtist;
+    }
+
+    public int getIdAlbum() {
+        return idAlbum;
+    }
+
+    public void setIdAlbum(int idAlbum) {
+        this.idAlbum = idAlbum;
+    }
+
     public String getSongTitle() {
         return songTitle;
     }
@@ -41,11 +62,11 @@ public class Song {
         this.songTitle = songTitle;
     }
 
-    public LocalDate getDuration() {
+    public Time getDuration() {
         return duration;
     }
 
-    public void setDuration(LocalDate duration) {
+    public void setDuration(Time duration) {
         this.duration = duration;
     }
 
