@@ -1,6 +1,7 @@
 package it.develhope.develhopeMusic.entities;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.time.LocalDate;
 
 @Entity
@@ -10,16 +11,20 @@ public class Album {
     private String albumTitle;
     private String genre;
     private LocalDate releaseDate;
+    private int idArtist;
+
 
 
     public Album() {
     }
 
-    public Album(int id, String albumTitle, String genre, LocalDate releaseDate) {
+    public Album(int id, String albumTitle, String genre, LocalDate releaseDate, int idArtist) {
         this.id = id;
         this.albumTitle = albumTitle;
         this.genre = genre;
         this.releaseDate = releaseDate;
+        this.idArtist =idArtist;
+
     }
 
     @Id
@@ -55,4 +60,14 @@ public class Album {
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
+
+    public void setIdArtist(int idArtist) {
+        this.idArtist = idArtist;
+    }
+
+    public int getIdArtist() {
+        return idArtist;
+    }
+
+
 }

@@ -3,6 +3,7 @@ package it.develhope.develhopeMusic.entities;
 import javax.persistence.*;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "songs")
@@ -50,12 +51,12 @@ public class Song {
         this.duration = duration;
     }
 
-    public LocalDate getReleaseDate() {
+    public LocalDate getRelaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setRelaseDate(LocalDate relaseDate) {
+        this.releaseDate = relaseDate;
     }
 
     public int getListenings() {
