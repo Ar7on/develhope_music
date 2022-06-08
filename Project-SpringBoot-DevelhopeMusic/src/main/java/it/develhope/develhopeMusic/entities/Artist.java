@@ -1,6 +1,9 @@
 package it.develhope.develhopeMusic.entities;
 
+import antlr.collections.impl.LList;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "artists")
@@ -8,6 +11,8 @@ public class Artist {
     private int id;
     private String name;
     private String genre;
+
+    private List<Album> albums;
 
     public Artist() {
     }
