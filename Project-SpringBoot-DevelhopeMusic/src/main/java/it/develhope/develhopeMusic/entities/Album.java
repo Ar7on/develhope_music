@@ -3,8 +3,6 @@ package it.develhope.develhopeMusic.entities;
 import javax.persistence.*;
 import java.sql.Time;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "albums")
@@ -15,6 +13,8 @@ public class Album {
     private LocalDate releaseDate;
     private int idArtist;
 
+
+
     public Album() {
     }
 
@@ -23,7 +23,7 @@ public class Album {
         this.albumTitle = albumTitle;
         this.genre = genre;
         this.releaseDate = releaseDate;
-        this.idArtist = idArtist;
+        this.idArtist =idArtist;
 
     }
 
@@ -68,5 +68,6 @@ public class Album {
     public int getIdArtist() {
         return idArtist;
     }
+
 
 }

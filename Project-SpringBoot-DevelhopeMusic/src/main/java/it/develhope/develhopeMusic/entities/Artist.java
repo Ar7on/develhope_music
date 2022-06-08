@@ -2,6 +2,8 @@ package it.develhope.develhopeMusic.entities;
 
 import antlr.collections.impl.LList;
 
+import it.develhope.develhopeMusic.entities.user.User;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -25,6 +27,20 @@ public class Artist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
+
+
+
+    /*
+//-------------------------------------------------------------------------------------------
+
+    @OneToOne(mappedBy = "artist")
+    private User user;
+
+//----------------------------------------------------------------------------
+*/
+
     public int getId() {
         return id;
     }

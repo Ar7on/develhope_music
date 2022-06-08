@@ -1,5 +1,7 @@
 package it.develhope.develhopeMusic.entities.user;
 
+import it.develhope.develhopeMusic.entities.Artist;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,6 +26,20 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    /*
+    //-------------------------------------------------------------------------
+    //prova Join da Java Spring
+    @OneToOne
+    @JoinTable(name = "artists",
+            joinColumns = @JoinColumn(name = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "ID")
+    )
+    private Artist artist;
+    //-------------------------------------------------------------------------
+    */
+
+
     public int getId() {
         return id;
     }
@@ -59,4 +75,7 @@ public class User {
     public String getTypeOfUser() {return typeOfUser;}
 
     public void setTypeOfUser(String typeOfUser) {this.typeOfUser = typeOfUser;}
+
+   /* public void artist(Artist artist) {
+    }*/
 }
