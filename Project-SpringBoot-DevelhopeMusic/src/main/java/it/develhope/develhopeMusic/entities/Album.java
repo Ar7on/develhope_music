@@ -1,25 +1,25 @@
 package it.develhope.develhopeMusic.entities;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "albums")
 public class Album {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String albumTitle;
     private String genre;
     private LocalDate releaseDate;
     private int idArtist;
 
-
-
     public Album() {
     }
 
-    public Album(int id, String albumTitle, String genre, LocalDate releaseDate, int idArtist) {
-        this.id = id;
+    public Album(int albumId, String albumTitle, String genre, LocalDate releaseDate, int idArtist) {
+        this.id = albumId;
         this.albumTitle = albumTitle;
         this.genre = genre;
         this.releaseDate = releaseDate;
@@ -27,8 +27,6 @@ public class Album {
 
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -68,6 +66,5 @@ public class Album {
     public int getIdArtist() {
         return idArtist;
     }
-
 
 }

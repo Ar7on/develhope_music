@@ -1,9 +1,6 @@
 package it.develhope.develhopeMusic.controllers;
 
-import it.develhope.develhopeMusic.entities.Artist;
 import it.develhope.develhopeMusic.entities.user.User;
-import it.develhope.develhopeMusic.repositories.ArtistRepository;
-import it.develhope.develhopeMusic.repositories.UserRepository;
 import it.develhope.develhopeMusic.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

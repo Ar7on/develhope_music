@@ -1,45 +1,29 @@
 package it.develhope.develhopeMusic.entities;
 
-import antlr.collections.impl.LList;
-
-import it.develhope.develhopeMusic.entities.user.User;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "artists")
 public class Artist {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String genre;
 
-    private List<Album> albums;
+    @OneToMany(mappedBy = "artist")
+    private List<Song> songs;
 
     public Artist() {
     }
 
-    public Artist(int id, String name, String genre) {
-        this.id = id;
+    public Artist(int artistId, String name, String genre) {
+        this.id = artistId;
         this.name = name;
         this.genre = genre;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
-
-
-
-    /*
-//-------------------------------------------------------------------------------------------
-
-    @OneToOne(mappedBy = "artist")
-    private User user;
-
-//----------------------------------------------------------------------------
-*/
 
     public int getId() {
         return id;
@@ -63,5 +47,13 @@ public class Artist {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
     }
 }

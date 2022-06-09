@@ -1,18 +1,27 @@
 package it.develhope.develhopeMusic.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Time;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "songs")
 public class Song {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String songTitle;
     private Time duration;
     private LocalDate releaseDate;
     private int listenings;
+
+    @ManyToOne()
+    @JsonIgnore
+    @JoinColumn(name = "ID_artist")
+    private Artist artist;
 
     public Song() {
     }
@@ -25,8 +34,6 @@ public class Song {
         this.listenings = listenings;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
         return id;
     }
@@ -51,11 +58,11 @@ public class Song {
         this.duration = duration;
     }
 
-    public LocalDate getRelaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public void setRelaseDate(LocalDate relaseDate) {
+    public void setReleaseDate(LocalDate relaseDate) {
         this.releaseDate = relaseDate;
     }
 
@@ -65,5 +72,13 @@ public class Song {
 
     public void setListenings(int listenings) {
         this.listenings = listenings;
+    }
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 }
