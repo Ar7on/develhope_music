@@ -18,10 +18,12 @@ public class Song {
     private LocalDate releaseDate;
     private int listenings;
 
-    @ManyToOne()
+    @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "ID_artist")
     private Artist artist;
+
+
 
     public Song() {
     }

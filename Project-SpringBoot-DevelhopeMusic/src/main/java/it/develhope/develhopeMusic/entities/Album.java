@@ -2,6 +2,7 @@ package it.develhope.develhopeMusic.entities;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "albums")
@@ -14,6 +15,9 @@ public class Album {
     private String genre;
     private LocalDate releaseDate;
     private int idArtist;
+
+    @OneToMany(mappedBy = "artist")
+    private List<Song> songList;
 
     public Album() {
     }

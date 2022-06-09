@@ -1,16 +1,12 @@
 package it.develhope.develhopeMusic.entities.user;
 
+import javax.persistence.Enumerated;
+
 public enum TypeOfUser {
 
-    LISTENER {
-        public String toString() {
-            return "LISTENER";
-        }
-    },
+    @Enumerated
 
-    ARTIST {
-        public String toString() {
-            return "ARTIST";
-        }
-    }
+    LISTENER,
+    ARTIST
+
 }

@@ -16,15 +16,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-   /* //prova-----------------------------------------------
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private ArtistRepository artistRepository;
-    //--------------------------------------------------------
-    */
-
 
     @GetMapping("")
     public List<User> list() { return userService.listAllUsers(); }
@@ -55,17 +46,7 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    /*@PutMapping("/{ID}artist/{ID}")
-    User userToArtist(@PathVariable Integer userId, @PathVariable Integer artistId){
-        User user = userRepository.getOne(userId);
-        Artist artist = artistRepository.getOne(artistId);
 
-        //user.artist(artist);
-
-
-        return user;
-    }
-*/
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) { userService.deleteUser(id); }

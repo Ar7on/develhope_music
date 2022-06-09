@@ -12,7 +12,7 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private String typeOfUser = TypeOfUser.LISTENER.toString();
+    private String typeOfUser;
 
     public User() {
     }
