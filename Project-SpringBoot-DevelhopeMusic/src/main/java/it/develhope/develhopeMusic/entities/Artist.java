@@ -16,6 +16,8 @@ public class Artist {
     @OneToMany(mappedBy = "artist")
     private List<Song> songs;
 
+    @OneToMany(mappedBy = "artist")
+    private List<Album> albums;
 
     public Artist() {
     }
@@ -56,5 +58,13 @@ public class Artist {
 
     public void setSongs(List<Song> songs) {
         this.songs = songs;
+    }
+
+    public List<Album> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<Album> albums) {
+        this.albums = albums;
     }
 }

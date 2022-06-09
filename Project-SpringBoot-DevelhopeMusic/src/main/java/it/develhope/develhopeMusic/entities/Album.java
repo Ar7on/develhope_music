@@ -1,5 +1,7 @@
 package it.develhope.develhopeMusic.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -14,20 +16,21 @@ public class Album {
     private String albumTitle;
     private String genre;
     private LocalDate releaseDate;
-    private int idArtist;
 
-    @OneToMany(mappedBy = "artist")
-    private List<Song> songList;
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "ID_artist")
+    private Artist artist;
 
     public Album() {
     }
 
-    public Album(int albumId, String albumTitle, String genre, LocalDate releaseDate, int idArtist) {
+    public Album(int albumId, String albumTitle, String genre, LocalDate releaseDate, Artist artist) {
         this.id = albumId;
         this.albumTitle = albumTitle;
         this.genre = genre;
         this.releaseDate = releaseDate;
-        this.idArtist =idArtist;
+        this.artist =artist;
 
     }
 
@@ -63,12 +66,11 @@ public class Album {
         this.releaseDate = releaseDate;
     }
 
-    public void setIdArtist(int idArtist) {
-        this.idArtist = idArtist;
+    public Artist getArtist() {
+        return artist;
     }
 
-    public int getIdArtist() {
-        return idArtist;
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
-
 }
