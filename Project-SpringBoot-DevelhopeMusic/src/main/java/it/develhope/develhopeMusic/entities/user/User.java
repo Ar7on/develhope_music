@@ -1,12 +1,13 @@
 package it.develhope.develhopeMusic.entities.user;
 
-import it.develhope.develhopeMusic.entities.Artist;
-
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
     private String password;
@@ -16,29 +17,13 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, String email, String typeOfUser) {
-        this.id = id;
+    public User(int userId, String username, String password, String email, String typeOfUser) {
+        this.id = userId;
         this.username = username;
         this.password = password;
         this.email = email;
         this.typeOfUser = typeOfUser;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    /*
-    //-------------------------------------------------------------------------
-    //prova Join da Java Spring
-    @OneToOne
-    @JoinTable(name = "artists",
-            joinColumns = @JoinColumn(name = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "ID")
-    )
-    private Artist artist;
-    //-------------------------------------------------------------------------
-    */
-
 
     public int getId() {
         return id;
@@ -76,6 +61,4 @@ public class User {
 
     public void setTypeOfUser(String typeOfUser) {this.typeOfUser = typeOfUser;}
 
-   /* public void artist(Artist artist) {
-    }*/
 }
