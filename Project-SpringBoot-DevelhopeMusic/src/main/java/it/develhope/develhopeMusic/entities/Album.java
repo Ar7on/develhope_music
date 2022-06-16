@@ -1,10 +1,12 @@
 package it.develhope.develhopeMusic.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
+
 
 @Entity
 @Table(name = "albums")
@@ -15,6 +17,8 @@ public class Album {
     private Integer id;
     private String albumTitle;
     private String genre;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate releaseDate;
 
     @ManyToOne
