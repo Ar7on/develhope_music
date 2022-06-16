@@ -12,7 +12,7 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String albumTitle;
     private String genre;
     private LocalDate releaseDate;
@@ -25,8 +25,8 @@ public class Album {
     public Album() {
     }
 
-    public Album(int albumId, String albumTitle, String genre, LocalDate releaseDate, Artist artist) {
-        this.id = albumId;
+    public Album(Integer id, String albumTitle, String genre, LocalDate releaseDate, Artist artist) {
+        this.id = id;
         this.albumTitle = albumTitle;
         this.genre = genre;
         this.releaseDate = releaseDate;
@@ -34,11 +34,11 @@ public class Album {
 
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -9,7 +9,7 @@ public class Artist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String name;
     private String genre;
 
@@ -22,17 +22,17 @@ public class Artist {
     public Artist() {
     }
 
-    public Artist(int artistId, String name, String genre) {
-        this.id = artistId;
+    public Artist(Integer id, String name, String genre) {
+        this.id = id;
         this.name = name;
         this.genre = genre;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

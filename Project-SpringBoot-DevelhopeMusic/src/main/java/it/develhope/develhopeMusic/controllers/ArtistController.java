@@ -1,5 +1,6 @@
 package it.develhope.develhopeMusic.controllers;
 
+import it.develhope.develhopeMusic.entities.Album;
 import it.develhope.develhopeMusic.entities.Artist;
 import it.develhope.develhopeMusic.services.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class ArtistController {
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Artist>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/{id}/albums")
+    public List<Album> albumsOfTheArtist(@PathVariable Integer id){
+        return artistService.getArtist(id).getAlbums();
     }
 
     @PostMapping("/")
