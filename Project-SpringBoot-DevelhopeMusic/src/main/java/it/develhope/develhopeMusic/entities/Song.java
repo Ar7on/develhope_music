@@ -12,7 +12,7 @@ public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String songTitle;
     private Time duration;
     private LocalDate releaseDate;
@@ -28,7 +28,7 @@ public class Song {
     public Song() {
     }
 
-    public Song(int id, String songTitle, Time duration, LocalDate releaseDate, int listenings) {
+    public Song(Integer id, String songTitle, Time duration, LocalDate releaseDate, int listenings) {
         this.id = id;
         this.songTitle = songTitle;
         this.duration = duration;
@@ -36,11 +36,11 @@ public class Song {
         this.listenings = listenings;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
