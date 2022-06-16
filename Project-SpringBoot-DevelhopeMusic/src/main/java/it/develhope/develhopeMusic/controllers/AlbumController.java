@@ -1,6 +1,7 @@
 package it.develhope.develhopeMusic.controllers;
 
 import it.develhope.develhopeMusic.entities.Album;
+import it.develhope.develhopeMusic.repositories.AlbumRepository;
 import it.develhope.develhopeMusic.services.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,9 @@ public class AlbumController {
     @Autowired
     private AlbumService albumService;
 
+    @Autowired
+    private AlbumRepository albumRepository;
+
     @GetMapping("")
     public List<Album> list() { return albumService.listAllAlbums(); }
 
@@ -28,6 +32,11 @@ public class AlbumController {
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Album>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/albumTitle")
+    public ResponseEntity<List<Album>> getAlbumByAlbumTitle(@RequestParam String albumTitle) {
+        return new ResponseEntity<List<Album>>(albumRepository.findByAlbumTitle(albumTitle), HttpStatus.OK);
     }
 
     @PostMapping("/")
