@@ -36,6 +36,11 @@ public class SongController {
         }
     }
 
+    @GetMapping("/songTitle")
+    public ResponseEntity<List<Song>> getSongBySongTitle(@RequestParam String songTitle) {
+        return new ResponseEntity<List<Song>>(songRepository.findBySongTitle(songTitle), HttpStatus.OK);
+    }
+
     @PostMapping("/")
     public void add(@RequestBody Song song) {
         songService.saveSong(song);

@@ -2,6 +2,7 @@ package it.develhope.develhopeMusic.controllers;
 
 import it.develhope.develhopeMusic.entities.Album;
 import it.develhope.develhopeMusic.entities.Artist;
+import it.develhope.develhopeMusic.repositories.ArtistRepository;
 import it.develhope.develhopeMusic.services.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,9 @@ public class ArtistController {
 
     @Autowired
     private ArtistService artistService;
+
+    @Autowired
+    private ArtistRepository artistRepository;
 
     @GetMapping("")
     public List<Artist> list() { return artistService.listAllArtists(); }
@@ -34,6 +38,11 @@ public class ArtistController {
     @GetMapping("/{id}/albums")
     public List<Album> albumsOfTheArtist(@PathVariable Integer id){
         return artistService.getArtist(id).getAlbums();
+    }
+
+    @GetMapping("/name")
+    public ResponseEntity<List<Artist>> getArtistByName(@RequestParam String name) {
+        return new ResponseEntity<List<Artist>>(artistRepository.findByName(name), HttpStatus.OK);
     }
 
     @PostMapping("/")

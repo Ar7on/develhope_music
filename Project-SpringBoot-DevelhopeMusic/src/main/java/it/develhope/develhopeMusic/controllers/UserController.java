@@ -1,6 +1,8 @@
 package it.develhope.develhopeMusic.controllers;
 
+import it.develhope.develhopeMusic.entities.Artist;
 import it.develhope.develhopeMusic.entities.user.User;
+import it.develhope.develhopeMusic.repositories.UserRepository;
 import it.develhope.develhopeMusic.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping("")
     public List<User> list() { return userService.listAllUsers(); }
 
@@ -28,6 +33,11 @@ public class UserController {
         } catch (NoSuchElementException e) {
             return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/username")
+    public ResponseEntity<List<User>> getUserByUsername(@RequestParam String username) {
+        return new ResponseEntity<List<User>>(userRepository.findByUsername(username), HttpStatus.OK);
     }
 
     @PostMapping("/")
