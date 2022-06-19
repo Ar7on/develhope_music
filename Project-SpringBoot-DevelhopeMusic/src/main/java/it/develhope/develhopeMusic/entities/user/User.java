@@ -12,12 +12,13 @@ public class User {
     private String username;
     private String password;
     private String email;
-    private String typeOfUser;
+    @Enumerated(EnumType.STRING)
+    private TypeOfUser typeOfUser;
 
     public User() {
     }
 
-    public User(Integer id, String username, String password, String email, String typeOfUser) {
+    public User(Integer id, String username, String password, String email, TypeOfUser typeOfUser) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -57,8 +58,8 @@ public class User {
         this.email = email;
     }
 
-    public String getTypeOfUser() {return typeOfUser;}
+    public TypeOfUser getTypeOfUser() {return typeOfUser;}
 
-    public void setTypeOfUser(String typeOfUser) {this.typeOfUser = typeOfUser;}
+    public void setTypeOfUser(TypeOfUser typeOfUser) {this.typeOfUser = typeOfUser;}
 
 }
