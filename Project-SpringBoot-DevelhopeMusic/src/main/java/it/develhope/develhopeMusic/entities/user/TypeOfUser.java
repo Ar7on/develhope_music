@@ -4,8 +4,6 @@ import javax.persistence.Enumerated;
 
 public enum TypeOfUser {
 
-    @Enumerated
-
     LISTENER,
     ARTIST
 

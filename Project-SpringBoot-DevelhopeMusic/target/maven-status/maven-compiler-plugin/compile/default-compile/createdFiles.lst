@@ -13,4 +13,6 @@ it\develhope\develhopeMusic\repositories\AlbumRepository.class
 it\develhope\develhopeMusic\entities\Album.class
 it\develhope\develhopeMusic\entities\Artist.class
 it\develhope\develhopeMusic\repositories\ArtistRepository.class
+it\develhope\develhopeMusic\entities\user\User.class
 it\develhope\develhopeMusic\controllers\AlbumController.class
+it\develhope\develhopeMusic\entities\user\TypeOfUser.class
