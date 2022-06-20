@@ -6,7 +6,6 @@ import it.develhope.develhopeMusic.repositories.AlbumRepository;
 import it.develhope.develhopeMusic.services.AlbumService;
 import it.develhope.develhopeMusic.services.ArtistService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Locale;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -54,22 +52,18 @@ public class AlbumController {
                       @RequestParam String releaseDate,
                       @RequestParam Integer artistId) {
 
-
         Album album = new Album();
+
         album.setAlbumTitle(albumTitle);
         album.setGenre(albumGenre);
 
         LocalDate date = LocalDate.parse(releaseDate,DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-
         album.setReleaseDate(date);
-
 
         Artist artist = artistService.getArtist(artistId);
         album.setArtist(artist);
 
-
         albumService.saveAlbum(album);
-
     }
 
     @PutMapping("/{id}")
@@ -86,5 +80,4 @@ public class AlbumController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) { albumService.deleteAlbum(id); }
-
 }

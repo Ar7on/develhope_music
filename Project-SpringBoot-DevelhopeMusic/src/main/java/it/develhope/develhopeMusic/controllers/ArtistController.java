@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -46,7 +47,14 @@ public class ArtistController {
     }
 
     @PostMapping("/")
-    public void add(@RequestBody Artist artist) {
+    public void add(  @RequestParam String name,
+                      @RequestParam String genre) {
+
+        Artist artist = new Artist();
+
+        artist.setName(name);
+        artist.setGenre(genre);
+
         artistService.saveArtist(artist);
     }
 
