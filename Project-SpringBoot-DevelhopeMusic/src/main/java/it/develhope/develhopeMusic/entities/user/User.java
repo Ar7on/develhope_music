@@ -61,5 +61,4 @@ public class User {
     public TypeOfUser getTypeOfUser() {return typeOfUser;}
 
     public void setTypeOfUser(TypeOfUser typeOfUser) {this.typeOfUser = typeOfUser;}
-
 }

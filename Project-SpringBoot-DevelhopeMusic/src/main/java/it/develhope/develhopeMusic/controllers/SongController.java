@@ -1,13 +1,20 @@
 package it.develhope.develhopeMusic.controllers;
 
+import it.develhope.develhopeMusic.entities.Album;
+import it.develhope.develhopeMusic.entities.Artist;
 import it.develhope.develhopeMusic.entities.Song;
 import it.develhope.develhopeMusic.repositories.SongRepository;
+import it.develhope.develhopeMusic.services.AlbumService;
+import it.develhope.develhopeMusic.services.ArtistService;
 import it.develhope.develhopeMusic.services.SongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -20,6 +27,12 @@ public class SongController {
 
     @Autowired
     private SongService songService;
+
+    @Autowired
+    private ArtistService artistService;
+
+    @Autowired
+    private AlbumService albumService;
 
     @GetMapping("")
     public List<Song> list() { return songService.listAllSongs(); }
@@ -42,7 +55,28 @@ public class SongController {
     }
 
     @PostMapping("/")
-    public void add(@RequestBody Song song) {
+    public void add(@RequestParam String songTitle,
+                    @RequestParam Time duration,
+                    @RequestParam String releaseDate,
+                    @RequestParam Integer artistId,
+                    @RequestParam Integer albumId) {
+
+        Song song = new Song();
+
+        song.setSongTitle(songTitle);
+        song.setDuration(duration);
+
+        LocalDate date = LocalDate.parse(releaseDate, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        song.setReleaseDate(date);
+
+        song.setListenings(0);
+
+        Artist artist = artistService.getArtist(artistId);
+        song.setArtist(artist);
+
+        Album album = albumService.getAlbum(albumId);
+        song.setAlbum(album);
+
         songService.saveSong(song);
     }
 
@@ -60,6 +94,4 @@ public class SongController {
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) { songService.deleteSong(id); }
-
-    }
-
+}

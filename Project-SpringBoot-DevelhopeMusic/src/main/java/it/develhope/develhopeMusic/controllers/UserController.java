@@ -1,6 +1,5 @@
 package it.develhope.develhopeMusic.controllers;
 
-import it.develhope.develhopeMusic.entities.Artist;
 import it.develhope.develhopeMusic.entities.user.User;
 import it.develhope.develhopeMusic.repositories.UserRepository;
 import it.develhope.develhopeMusic.services.UserService;
@@ -56,7 +55,6 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) { userService.deleteUser(id); }

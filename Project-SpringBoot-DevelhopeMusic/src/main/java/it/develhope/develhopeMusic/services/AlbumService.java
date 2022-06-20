@@ -1,7 +1,6 @@
 package it.develhope.develhopeMusic.services;
 
 import it.develhope.develhopeMusic.entities.Album;
-import it.develhope.develhopeMusic.entities.Song;
 import it.develhope.develhopeMusic.repositories.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +30,4 @@ public class AlbumService {
     public void deleteAlbum(Integer id) {
         albumRepository.deleteById(id);
     }
-
 }
