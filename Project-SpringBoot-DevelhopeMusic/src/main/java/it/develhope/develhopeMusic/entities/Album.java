@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -25,6 +26,9 @@ public class Album {
     @JsonIgnore
     @JoinColumn(name = "ID_artist")
     private Artist artist;
+
+    @OneToMany(mappedBy = "album")
+    private List<Song> songs;
 
     public Album() {
     }
@@ -76,5 +80,13 @@ public class Album {
 
     public void setArtist(Artist artist) {
         this.artist = artist;
+    }
+
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
     }
 }

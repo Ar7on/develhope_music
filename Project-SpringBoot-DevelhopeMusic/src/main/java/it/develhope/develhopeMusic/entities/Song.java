@@ -22,7 +22,10 @@ public class Song {
     @JsonIgnore
     @JoinColumn(name = "ID_artist")
     private Artist artist;
-
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "ID_album")
+    private Album album;
 
 
     public Song() {
@@ -82,5 +85,13 @@ public class Song {
 
     public void setArtist(Artist artist) {
         this.artist = artist;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
     }
 }
