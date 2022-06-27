@@ -1,5 +1,7 @@
 package it.develhope.develhopeMusic.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,9 +16,11 @@ public class Artist {
     private String genre;
 
     @OneToMany(mappedBy = "artist")
+    @JsonIgnore
     private List<Song> songs;
 
     @OneToMany(mappedBy = "artist")
+   // @JsonIgnore
     private List<Album> albums;
 
     public Artist() {
